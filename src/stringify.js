@@ -47,6 +47,10 @@ var DEFAULT_MINIFIER_OPTIONS = {
  * @returns {string}
  */
 function stringify (content) {
+  if(content.indexOf('module.exports =') === 0){
+    return content;
+  }
+
   return 'module.exports = ' + JSON.stringify(content) + ';\n';
 }
 
